@@ -1,7 +1,12 @@
 extends layout
 
 block content
-	.container
-		h1 Applicants
-		ul#applications.list-unstyled
-		p Applicants should go here.
+  .container
+    h1 Applicants
+    ul#applications.list-unstyled
+      for user in data
+        li
+          a(href="/app/"+user._id) #{user.name} 
+          a.btn.btn-danger.btn-xs(href="/delete/#{user._id}") X
+
+    p Applicants should go here.
